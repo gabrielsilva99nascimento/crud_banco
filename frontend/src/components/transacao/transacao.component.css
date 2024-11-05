@@ -1,0 +1,80 @@
+h2 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.transacao-form {
+  max-width: 400px;
+  margin: 0 auto 20px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.btn-add {
+  background-color: #5cb85c;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-add:hover {
+  background-color: #4cae4c;
+}
+
+.transacao-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 0.9em;
+  font-family: Arial, sans-serif;
+}
+
+.transacao-table th,
+.transacao-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.transacao-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.negative {
+  color: #d9534f;
+}
+
+.positive {
+  color: #5cb85c;
+}
+
+.btn-delete {
+  background-color: #d9534f;
+  color: #4cae4c;
+}

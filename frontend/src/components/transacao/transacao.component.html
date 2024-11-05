@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerenciar Transações Financeiras</title>
+    <link rel="stylesheet" href="./transacao.component.css" />
+  </head>
+  <body>
+    <h2>Gerenciar Transações Financeiras</h2>
+
+    <!-- Formulário para Adicionar Nova Transação -->
+    <form (ngSubmit)="createTransacao()" class="transacao-form">
+      <div class="form-group">
+        <label for="descricao">Descrição:</label>
+        <input
+          type="text"
+          id="descricao"
+          [(ngModel)]="novaTransacao.descricao"
+          name="descricao"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="valor">Valor:</label>
+        <input
+          type="number"
+          id="valor"
+          [(ngModel)]="novaTransacao.valor"
+          name="valor"
+          required
+          min="0"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="tipo">Tipo de Transação:</label>
+        <select
+          id="tipo"
+          [(ngModel)]="novaTransacao.tipo_id"
+          name="tipo"
+          required
+        >
+          <option value="">Selecione o Tipo</option>
+          <option value="1">Receita</option>
+          <option value="2">Despesa</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn-add">Adicionar Transação</button>
+    </form>
+
+    <!-- Tabela de Transações -->
+    <table class="transacao-table">
+      <thead>
+        <tr>
+          <th>Descrição</th>
+          <th>Valor</th>
+          <th>Tipo</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transacao of transacoes">
+          <td>Aluguel</td>
+          <td
+            [ngClass]="{
+              negative: transacao.valor < 0,
+              positive: transacao.valor >= 0
+            }"
+          >
+            R$ 800,00
+          </td>
+          <td>Despesa</td>
+          <td>
+            <button (click)="excluirTransacao(transacao.id)" class="btn-delete">
+              Excluir
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

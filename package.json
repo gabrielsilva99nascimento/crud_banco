@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@angular/core": "^18.2.10",
+    "@angular/forms": "^18.2.10",
+    "@angular/platform-browser": "^18.2.10",
+    "php": "^1.1.0"
+  }
+}
