@@ -1,12 +1,13 @@
 import { Component, OnInit } from "@angular/core";
-import { TransacaoService } from "../transacao/transacao.service";
+import { TransactionService } from "./transactionService";
 
 @Component({
   selector: "app-transacao",
-  templateUrl: "./transacao.component.html",
-  styleUrls: ["./transacao.component.css"],
+  templateUrl: "./TransactionComponent.html",
+  styleUrls: ["./TransactionComponent.css"],
 })
-export class TransacaoComponent implements OnInit {
+
+export class TransactionComponent implements OnInit {
   transacoes: any[] = [];
   descricao: string = "";
   valor: number = 0;
@@ -14,22 +15,22 @@ export class TransacaoComponent implements OnInit {
   tipo_id: number = 1;
   id: number | null = null;
 
-  constructor(private transacaoService: TransacaoService) {}
+  constructor(private transactionService: TransactionService) {}
 
   ngOnInit(): void {
-    this.loadTransacoes();
+    this.loadTransactions();
   }
 
-  loadTransacoes() {
-    this.transacaoService.getTransacoes().subscribe((data) => {
+  loadTransactions() {
+    this.transactionService.getTransaction().subscribe((data) => {
       this.transacoes = data;
     });
   }
 
   onSubmit() {
     if (this.id) {
-      this.transacaoService
-        .updateTransacao(
+      this.transactionService
+        .updateTransaction(
           this.id,
           this.descricao,
           this.valor,
@@ -37,22 +38,22 @@ export class TransacaoComponent implements OnInit {
           this.tipo_id
         )
         .subscribe(() => {
-          this.loadTransacoes();
+          this.loadTransactions();
           this.clearForm();
         });
     } else {
-      this.transacaoService
-        .createTransacao(this.descricao, this.valor, this.data, this.tipo_id)
+      this.transactionService
+        .createTransaction(this.descricao, this.valor, this.data, this.tipo_id)
         .subscribe(() => {
-          this.loadTransacoes();
+          this.loadTransactions();
           this.clearForm();
         });
     }
   }
 
   deleteTransacao(id: number) {
-    this.transacaoService.deleteTransacao(id).subscribe(() => {
-      this.loadTransacoes();
+    this.transactionService.deleteTransaction(id).subscribe(() => {
+      this.loadTransactions();
     });
   }
 

@@ -1,6 +1,6 @@
 <?php
 
-class TransacaoController
+class TransactionController
 {
     private static $pdo;
 

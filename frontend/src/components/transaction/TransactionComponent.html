@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gerenciar Transações Financeiras</title>
-    <link rel="stylesheet" href="./transacao.component.css" />
+    <link rel="stylesheet" href="./TransactionComponent.css" />
   </head>
   <body>
     <h2>Gerenciar Transações Financeiras</h2>
 
     <!-- Formulário para Adicionar Nova Transação -->
-    <form (ngSubmit)="createTransacao()" class="transacao-form">
+    <form (ngSubmit)="createTransaction()" class="transacao-form">
       <div class="form-group">
         <label for="descricao">Descrição:</label>
         <input
@@ -74,7 +74,7 @@
           </td>
           <td>Despesa</td>
           <td>
-            <button (click)="excluirTransacao(transacao.id)" class="btn-delete">
+            <button (click)="deleteTransaction(transacao.id)" class="btn-delete">
               Excluir
             </button>
           </td>

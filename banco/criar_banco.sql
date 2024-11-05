@@ -1,6 +1,6 @@
-CREATE DATABASE financas;
+CREATE DATABASE financeiro;
 
-USE financas;
+USE financeiro;
 
 -- Tabela para armazenar tipos de transação
 CREATE TABLE tipo_transacao (

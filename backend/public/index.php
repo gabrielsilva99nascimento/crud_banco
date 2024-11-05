@@ -1,23 +1,23 @@
 <?php
-require_once 'controllers/TransacaoController.php';
+require_once './backend/src/controllers/transactionController.php';
 
-$transacaoController = new TransacaoController();
+$transactionController = new TransactionController();
 
 if (isset($_POST['action'])) {
     switch ($_POST['action']) {
         case 'create':
-            $transacaoController->create();
+            $transactionController->create();
             break;
         case 'update':
-            $transacaoController->update($_POST['id']);
+            $transactionController->update($_POST['id']);
             break;
         case 'delete':
-            $transacaoController->delete($_POST['id']);
+            $transactionController->delete($_POST['id']);
             break;
     }
 }
 
-$transacoes = $transacaoController->readAll();
+$transacoes = $transactionController->readAll();
 ?>
 
 <!DOCTYPE html>
@@ -56,16 +56,16 @@ $transacoes = $transacaoController->readAll();
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($transacoes as $transacao): ?>
+            <?php foreach ($transacoes as $transaction): ?>
                 <tr>
-                    <td><?php echo $transacao['id']; ?></td>
-                    <td><?php echo $transacao['descricao']; ?></td>
-                    <td><?php echo $transacao['valor']; ?></td>
-                    <td><?php echo $transacao['data']; ?></td>
-                    <td><?php echo $transacao['tipo_descricao']; ?></td>
+                    <td><?php echo $transaction['id']; ?></td>
+                    <td><?php echo $transaction['descricao']; ?></td>
+                    <td><?php echo $transaction['valor']; ?></td>
+                    <td><?php echo $transaction['data']; ?></td>
+                    <td><?php echo $transaction['tipo_descricao']; ?></td>
                     <td>
                         <form method="POST" action="">
-                            <input type="hidden" name="id" value="<?php echo $transacao['id']; ?>">
+                            <input type="hidden" name="id" value="<?php echo $transaction['id']; ?>">
                             <button type="submit" name="action" value="delete">Excluir</button>
                         </form>
                     </td>

@@ -1,7 +1,7 @@
 <?php
 require_once '../config/database.php';
 
-class Transacao {
+class Transaction {
     public function create($descricao, $valor, $data, $tipo_id) {
         global $pdo;
         $sql = "INSERT INTO transacao (descricao, valor, data, tipo_id) VALUES (?, ?, ?, ?)";
